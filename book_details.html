@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Book Details</title>
+        <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    header {
+      width: 100vw;
+      height: 100px;
+      background-color: magenta;
+      color: white;
+    }
+    header h1 {
+      text-align: center;
+      position: relative;
+      top: 30px;
+    }
+    ul {
+      display: flex;
+    }
+    ul li {
+      display: flex;
+      position: relative;
+      left: 1000px;
+      padding: 10px;
+      bottom: 30px;
+    }
+    li a {
+      color: white;
+      font-weight: bold;
+      font-size: 17px;
+      text-decoration: none;
+      transition: all 1s;
+    }
+    li a:hover {
+      color: orangered;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 30px;
+      background-color: #fff;
+    }
+    .book-info img {
+      width: 200px;
+      height: auto;
+    }
+    .book-info h2 {
+      color: tomato;
+      font-size: 28px;
+    }
+    .book-info p {
+      margin-top: 10px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .book-info button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: tomato;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+    .book-info button:hover {
+      background-color: blueviolet;
+    }
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      background-color: rgb(62, 60, 60);
+      color: white;
+      padding: 50px 0;
+    }
+    .first, .second, .third, .fourth {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+    .first {
+      line-height: 1.5;
+    }
+    .first p {
+      color: gray;
+    }
+    footer .small {
+      font-size: 18px;
+      color: chocolate;
+    }
+    .second div {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .second p {
+      margin-left: 10px;
+      color: gray;
+    }
+    .third {
+      display: flex;
+      flex-direction: column;
+    }
+    .third a {
+      text-decoration: none;
+      padding: 5px 0;
+      color: gray;
+    }
+    .fourth p {
+      color: gray;
+      margin: 5px 0;
+    }
+    footer h2 {
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to My Book Center</h1>
+            <ul>
+                <li><a href="home.html">Home Page</a></li>
+                <li><a href="book_details.html">Book Details Page</a></li>
+                <li><a href="shopping_cart.html">Purchase History</a></li>
+            </ul>
+        </header>
+
+        <div class="container">
+            <div class="book-info" id="book-container"></div>
+        </div>
+
+        <footer>
+            <div class="first">
+                <h2>Books</h2>
+                <p>This book explores how to build the future by creating
+                    something entirely new—going from zero to one...</p>
+                <a href="#" class="small">Our team</a>
+            </div>
+            <div class="second">
+                <h2>Contact</h2>
+                <div><img src="./location_on_24dp.png"
+                        width="25px"><p>Velachery, Chennai</p></div>
+                <div><img src="./call_24dp.png"><p>Phone: 0123456789</p></div>
+                <div><img src="./mail_24dp.png"><p>Email:
+                        murugan.webbuilder@gmail.com</p></div>
+            </div>
+            <div class="third">
+                <h2>Link</h2>
+                <a href="./home.html">Home</a>
+                <a href="./book_details.html">Book Details</a>
+                <a href="./user_details.html">Customer Login</a>
+            </div>
+            <div class="fourth">
+                <p>Plans & Price</p>
+                <p>Affiliates</p>
+                <p>Terms</p>
+            </div>
+        </footer>
+
+        <script>
+    const book = JSON.parse(localStorage.getItem("selectedBook"));
+    const container = document.getElementById("book-container");
+
+    if (book) {
+      container.innerHTML = `
+        <h2>${book.title}</h2>
+        <img src="${book.img}" alt="${book.title}">
+        <p>${book.desc}</p>
+        <button id="addToCartBtn">Add to Cart</button>
+      `;
+
+      document.getElementById("addToCartBtn").addEventListener("click", () => {
+        const bookWithPrice = { ...book, price: 500 };
+
+        let cart = JSON.parse(localStorage.getItem("cartItem")) || [];
+        cart.push(bookWithPrice);
+        localStorage.setItem("cartItem", JSON.stringify(cart));
+
+        window.location.href = "./user_details.html";
+      });
+    } else {
+      container.innerHTML = "<p>No book details found.</p>";
+    }
+  </script>
+    </body>
+</html>

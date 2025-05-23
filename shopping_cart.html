@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Shopping Cart</title>
+        <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+      }
+
+      header {
+        width: 100vw;
+        height: 100px;
+        background-color: magenta;
+        color: white;
+      }
+
+      header h1 {
+        text-align: center;
+        position: relative;
+        top: 30px;
+      }
+
+      ul {
+        display: flex;
+      }
+
+      ul li {
+        display: flex;
+        position: relative;
+        left: 1000px;
+        padding: 10px;
+        bottom: 30px;
+      }
+
+      li a {
+        color: white;
+        font-weight: bold;
+        font-size: 17px;
+        text-decoration: none;
+        transition: all 1s;
+      }
+
+      li a:hover {
+        color: orangered;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+        color: tomato;
+      }
+
+      #cart {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+
+      #cart img {
+        display: block;
+        margin: 20px auto;
+      }
+
+      #cart p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      #cart h2 {
+        color: teal;
+        text-align: center;
+      }
+
+      #cart h3 {
+        margin-top: 20px;
+        color: #333;
+      }
+
+      button {
+        display: block;
+        margin: 30px auto;
+        padding: 12px 24px;
+        background-color: tomato;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: blueviolet;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: rgb(62, 60, 60);
+        color: white;
+        padding: 50px 0;
+        margin-top: 40px;
+      }
+
+      .first,
+      .second,
+      .third,
+      .fourth {
+        flex: 1 1 200px;
+        margin: 20px;
+      }
+
+      .first {
+        line-height: 1.5;
+      }
+
+      .first p {
+        color: gray;
+      }
+
+      footer .small {
+        font-size: 18px;
+        color: chocolate;
+      }
+
+      .second {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .second div {
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+      }
+
+      .second p {
+        margin-left: 10px;
+        color: gray;
+      }
+
+      .third {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .third a {
+        text-decoration: none;
+        padding: 5px 0;
+        color: gray;
+      }
+
+      .fourth p {
+        color: gray;
+        margin: 5px 0;
+      }
+
+      footer h2 {
+        font-family: 'Courier New', Courier, monospace;
+      }
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to My Book Center</h1>
+            <ul>
+                <li><a href="home.html">Home Page</a></li>
+                <li><a href="book_details.html">Book Details Page</a></li>
+                <li><a href="shopping_cart.html">Purchase</a></li>
+            </ul>
+        </header>
+
+        <h1>Your Shopping Cart</h1>
+        <div id="cart"></div>
+        <button onclick="completePurchase()">Complete Purchase</button>
+
+        <footer>
+            <div class="first">
+                <h2>Books</h2>
+                <p>
+                    This book explores how to build the future by creating
+                    something
+                    entirely new—going from zero to one. Peter Thiel argues that
+                    true
+                    innovation comes from thinking differently, not competing in
+                    crowded
+                    markets.
+                </p>
+                <a href="#" class="small">Our team</a>
+            </div>
+
+            <div class="second">
+                <h2>Contact</h2>
+                <div>
+                    <img
+                        src="./location_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        width="25px" alt="location" />
+                    <p>Velachery, Chennai, Tamil Nadu</p>
+                </div>
+                <div>
+                    <img
+                        src="./images/call_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        alt="call" />
+                    <p>Phone no: 0123456789</p>
+                </div>
+                <div>
+                    <img
+                        src="./images/mail_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        alt="mail" />
+                    <p>Email: murugan.webbuilder@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="third">
+                <h2>Link</h2>
+                <a href="./home.html">Home</a>
+                <a href="./book_details.html">Book Details</a>
+                <a href="./user_details.html">Customer Login</a>
+            </div>
+
+            <div class="fourth">
+                <p>Plans & Price</p>
+                <p>Affiliates</p>
+                <p>Terms</p>
+            </div>
+        </footer>
+
+        <script>
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const books = JSON.parse(localStorage.getItem("cartItem")) || [];
+
+  console.log("User Info:", user);
+  console.log("Book Info:", books);
+
+  const cartDiv = document.getElementById("cart");
+
+  if (user && books.length > 0) {
+    let html = books.map(book => `
+      <div style="margin-bottom: 30px;">
+        <h2>${book.title}</h2>
+        <img src="${book.img}" width="150" />
+        <p>${book.desc}</p>
+        <p><strong>Price:</strong> ₹${book.price}</p>
+      </div>
+    `).join("");
+
+    html += `
+      <h3>Buyer Info:</h3>
+      <p><strong>Name:</strong> ${user.name}</p>
+      <p><strong>Email:</strong> ${user.email}</p>
+      <p><strong>Address:</strong> ${user.address}</p>
+    `;
+
+    cartDiv.innerHTML = html;
+  } else {
+    cartDiv.innerText = "No items in cart.";
+  }
+
+  function completePurchase() {
+    alert("Thank you for your purchase!");
+    localStorage.clear();
+    window.location.href = "home.html";
+  }
+</script>
+
+    </body>
+</html>

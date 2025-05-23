@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <style>
+            body{
+                overflow-x:hidden ;
+            }
+        header{
+            width: 100vw;
+            height: 100px;
+            background-color: magenta;
+            color: white;
+        }
+        header h1{
+
+            text-align: center;
+            position: relative;
+            top: 30px;
+        }
+        ul{
+            display: flex;
+        }
+        ul li{
+            display: flex;
+            position: relative;
+            left: 1000px;
+            padding: 10px;
+            /* top: 15px; */
+            bottom: 30px;
+        }
+        li a{
+            color: white;
+            font-weight: bold;
+            font-size: 17px;
+            text-decoration: none;
+            transition: all 1s;
+        }
+        li a:hover{
+            color: orangered;
+        }
+        .book{
+            display: flex;
+            margin: 20px;
+            height: auto;
+            flex-wrap: wrap;
+            /* box-shadow: 10px 4px 20px 2px; */
+            padding: 20px;
+        }
+        .books{
+            width: 300px;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+        .book1{
+            width: 400px;
+            text-align: center;
+            height: 390px;
+            background-color: white;
+            box-shadow: 5px 5px 30px 2px;
+            margin: 20px;
+        }
+        .book button{
+            width: 150px;
+            height: 50px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: bold;
+            background-color: tomato;
+            color: white;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.8s;
+        }
+        button:hover{
+            background-color: blueviolet;
+        }
+
+        .book img{
+            width: 150px;
+            height: 150px;
+        }
+
+        .book1 h1{
+            color:tomato;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .btn{
+            position: relative;
+            bottom: 15px;
+        }
+
+        footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    background-color: rgb(62, 60, 60);
+    color: white;
+}
+
+.first, .second, .third, .fourth {
+    flex: 1 1 200px;
+    margin: 20px;
+    min-width: 200px;
+}
+
+footer h2 {
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 10px;
+}
+
+footer .small {
+    font-size: 18px;
+    color: chocolate;
+}
+
+.first p,
+.second p,
+.third a,
+.fourth p {
+    color: gray;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.third a {
+    text-decoration: none;
+    display: block;
+    transition: all .7s;
+}
+
+.loc, .call, .mail {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.loc img,
+.call img,
+.mail img {
+    width: 20px;
+    height: 20px;
+}
+.third a:hover{
+    color: white;
+}
+
+
+    </style>
+    </head>
+    <body>
+        <header>
+            <h1>Welcome to My Book Center</h1>
+            <ul>
+                <li><a href="home.html">Home Page</a></li>
+                <li><a href="book_details.html">Book Details Page</a></li>
+                <li><a href="shopping_cart.html">Purchase History</a></li>
+            </ul>
+        </header>
+        <div class="book">
+            <div class="book1 books ">
+                <h1>Zero To One</h1>
+                <img src="./images/img1.jpg" alt="Book1">
+                <p>Zero to One" by Peter Thiel explores how to build innovative
+                    startups by creating something entirely new rather than
+                    copying existing ideas.</p>
+                <button onclick="viewDetails('Zero To One')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Harry Potter</h1>
+                <img src="./images/img2.jpg" alt="Book2">
+                <p>Harry Potter" is a fantasy series by J.K. Rowling that
+                    follows a young wizard as he discovers his magical heritage
+                    and battles the dark lord Voldemort</p>
+                <button onclick="viewDetails('Harry Potter')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Mock Up Set</h1>
+                <img src="./images/img3.jpg" alt="Book3">
+                <p>It looks like there was an error accessing the first mockup
+                    set from Good Mockups. You can still view</p>
+                <button onclick="viewDetails('Mock Up set')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Fortress Blood</h1>
+                <img src="./images/img4.jpeg" alt="Book4">
+                <p>A fae fantasy romance inspired by Mansfield Park, where a
+                    banished girl with forbidden winter magic faces deadly
+                    trials in a ruthless fortress.</p>
+                <button onclick="viewDetails('Fortress Blood')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Dune</h1>
+                <img src="./images/img5.jpg" alt="Book5">
+                <p>Dune is a sweeping science fiction epic set on the desert
+                    planet Arrakis, where young Paul Atreides becomes embroiled
+                    in a deadly struggle over the planet's valuable spice,
+                    melange.</p>
+                <button onclick="viewDetails('Dune')">More Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Blood Rupy</h1>
+                <img src="./images/img6.jpg" alt="Book6">
+                <p>A horror novel centered around a cursed Burmese ruby that
+                    grants its owner’s desires but brings tragic
+                    consequences.</p>
+                <button onclick="viewDetails('Blood Rupy')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>The First World War</h1>
+                <img src="./images/img7.jpg" alt="Book7">
+                <p>The First World War (1914–1918) was a global conflict
+                    triggered by the assassination of Archduke Franz Ferdinand,
+                    involving major world powers divided into the Allies and
+                    Central Powers.</p>
+                <button class="btn"
+                    onclick="viewDetails('The First World War')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>My weird school</h1>
+                <img src="./images/img8.webp" alt="Book8">
+                <p>My Weird School is a humorous children's book series that
+                    follows quirky adventures and funny misadventures in a
+                    school full of odd teachers and wacky students.</p>
+                <button onclick="viewDetails('My weird school')">More
+                    Information</button>
+            </div>
+            <div class="book1 books">
+                <h1>Grave Secrets</h1>
+                <img src="./images/img9.jpeg" alt="Book9">
+                <p>In Grave Secrets, forensic anthropologist Temperance Brennan
+                    investigates mass graves in Guatemala, uncovering a complex
+                    web of corruption and violence.</p>
+                <button onclick="viewDetails('Grave Secrets')">More
+                    Information</button>
+            </div>
+        </div>
+        <footer>
+            <div class="first">
+                <h2>Books</h2>
+                <p>This book explores how to build the future by creating
+                    something entirely new—going from zero to one. Peter Thiel
+                    argues that true innovation comes from thinking differently,
+                    not competing in crowded markets.</p>
+                <a href="#" class="small">Our team</a>
+            </div>
+
+            <div class="second">
+                <h2>Contact</h2>
+                <div class="loc">
+                    <img
+                        src="./location_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        alt="loc">
+                    <p>Velachery, Chennai, Tamil Nadu</p>
+                </div>
+                <div class="call">
+                    <img
+                        src="./images/call_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        alt="call">
+                    <p>Phone no : 0123456789</p>
+                </div>
+                <div class="mail">
+                    <img
+                        src="./images/mail_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png"
+                        alt="mail">
+                    <p>Email : murugan.webbuilder@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="third">
+                <h2>Link</h2>
+                <a href="./home.html">Home</a>
+                <a href="./book_details.html">Book Details</a>
+                <a href="./user_deatils.html">Customer Login</a>
+            </div>
+
+            <div class="fourth">
+                <h2>Others</h2>
+                <p>Plans & Price</p>
+                <p>Affiliates</p>
+                <p>Terms</p>
+            </div>
+
+        </footer>
+        <script>
+  function viewDetails(title) {
+    const books = {
+      "Zero To One": {
+        title: "Zero To One",
+        img: "./images/img1.jpg",
+        desc: "Zero to One by Peter Thiel explores how to build innovative startups by creating something entirely new rather than copying existing ideas.,"
+      },
+      "Harry Potter": {
+        title: "Harry Potter",
+        img: "./images/img2.jpg",
+        desc: "Harry Potter  is a fantasy series by J.K. Rowling that follows a young wizard as he discovers his magical heritage and battles the dark lord Voldemort"
+      },
+      "Mock Up set": {
+        title: "Mock Up set",
+        img: "./images/img3.jpg",
+        desc: "It looks like there was an error accessing the first mockup set from Good Mockups. You can still view"
+      },
+      "Fortress Blood": {
+        title: "Fortress Blood",
+        img: "./images/img4.jpeg",
+        desc: "A fae fantasy romance inspired by Mansfield Park, where a banished girl with forbidden winter magic faces deadly trials in a ruthless fortress."
+      },
+      "Dune": {
+        title: "Dune",
+        img: "./images/img5.jpg",
+        desc: "Dune is a sweeping science fiction epic set on the desert planet Arrakis, where young Paul Atreides becomes embroiled in a deadly struggle over the planet's valuable spice, melange."
+      },
+      "Blood Rupy": {
+        title: "Blood Rupy",
+        img: "./images/img6.jpg",
+        desc: "A horror novel centered around a cursed Burmese ruby that grants its owner’s desires but brings tragic consequences."
+      },
+      "The First World War": {
+        title: "The First World War",
+        img: "./images/img7.jpg",
+        desc: "The First World War (1914–1918) was a global conflict triggered by the assassination of Archduke Franz Ferdinand, involving major world powers divided into the Allies and Central Powers."
+      },
+      "My weird school": {
+  title: "My weird school",
+  img: "./images/img8.webp",  // ✅ fixed here
+  desc: "My Weird School is a humorous children's book series that follows quirky adventures and funny misadventures in a school full of odd teachers and wacky students."
+},
+"Grave Secrets": {
+  title: "Grave Secrets",
+  img: "./images/img9.jpeg",  // This is correct assuming the image exists
+  desc: "In Grave Secrets, forensic anthropologist Temperance Brennan investigates mass graves in Guatemala, uncovering a complex web of corruption and violence."
+}
+
+
+
+
+      
+    };
+    localStorage.setItem("selectedBook", JSON.stringify(books[title]));
+    window.location.href = "book_details.html";
+  }
+</script>
+    </body>
+</html>
