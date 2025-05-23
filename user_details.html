@@ -6,7 +6,6 @@
     <style>
     body {
       font-family: Arial, sans-serif;
-      /* padding: 20px; */
       overflow-x: hidden;
     }
 
@@ -30,7 +29,6 @@
             position: relative;
             left: 1000px;
             padding: 10px;
-            /* top: 15px; */
             bottom: 30px;
         }
         li a{
@@ -111,7 +109,7 @@
   const cartContainer = document.getElementById("cart");
 const totalPriceElement = document.getElementById("totalPrice");
 
-// Try to load an array of items
+
 const cart = JSON.parse(localStorage.getItem("cartItem")) || [];
 
 if (cart.length === 0) {
@@ -134,18 +132,18 @@ if (cart.length === 0) {
   totalPriceElement.textContent = `Total: ₹${total}`;
 }
 
-// Remove a specific item
+
 function removeItem(index) {
   let cart = JSON.parse(localStorage.getItem("cartItem")) || [];
   cart.splice(index, 1);
   localStorage.setItem("cartItem", JSON.stringify(cart));
-  location.reload(); // Refresh page to update cart
+  location.reload(); 
 }
 
 function placeOrder() {
   alert("Order placed successfully!");
-  localStorage.removeItem("cartItem"); // Clear cart after order
-  window.location.href = "home.html"; // Redirect to home
+  localStorage.removeItem("cartItem"); 
+  window.location.href = "home.html"; 
 }
 
 </script>
